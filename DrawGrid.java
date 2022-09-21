@@ -72,7 +72,11 @@ public class DrawGrid {
 
             g2.setColor(new Color(255, 255, 255));
 
-            g2.drawString("Red's Turn",400,20);
+            if (turn % 2 == 0) {
+                g2.drawString("Red's Turn",400,20);
+            }else{
+                g2.drawString("Red's Turn",400,20);
+            }
 
 
         }
@@ -81,7 +85,14 @@ public class DrawGrid {
 
             int x = e.getX();
             int y = e.getY();
-            // System.out.println(x + " " + y);
+            int xSpot=x/cellWidth;
+            int ySpot=y/cellWidth;
+            if(turn%2==0){
+                grid[ySpot][xSpot]=new Color(255,0,0);
+            }else{
+                grid[ySpot][xSpot]=new Color(255,255,0);
+            }
+            System.out.println(x + " " + xSpot + " " + y + " "+ ySpot);
             turn++;
             repaint();
         }
